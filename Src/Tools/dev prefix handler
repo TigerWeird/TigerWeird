@@ -1,0 +1,21 @@
+const Discord = require("discord.js");
+const devConfig = require("../../Src/Models/devConfig.js");
+const { ee, ev } = require("../../Src/Json/used.json");
+
+module.exports = {
+  name: "",
+  alias: [],
+  botPerms: [],
+  userPerms: [],
+
+async execute (client, message, args, guildC, reply, editReply, send) {
+
+    const devC = devConfig.findOne({ clientID: client.user.id });
+    if(devC?.config?.devList.includes(message.author.id)) return await reply(message, ee + "You are not allowed to use this");
+
+    // CONSTANTES
+//--------------------------------------------------------------------------
+    // CODE
+//--------------------------------------------------------------------------
+  }
+}
